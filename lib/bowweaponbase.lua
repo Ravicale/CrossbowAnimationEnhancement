@@ -16,6 +16,9 @@ function CrossbowWeaponBase:_update_stats_values(...)
 			break
 		end
 	end
+
+	--Cache string animation timing
+	self._string_time = self:weapon_tweak_data().crossbow_string_time
 end
 
 local orig_on_enabled = CrossbowWeaponBase.on_enabled
@@ -31,8 +34,7 @@ function CrossbowWeaponBase:set_ammo_remaining_in_clip(...)
 end
 
 function CrossbowWeaponBase:update_crossbow_string(speed)
-	local string_time = self:weapon_tweak_data().crossbow_string_time
-	if not string_time or not self._animated_barrel_part then 
+	if not self._string_time or not self._animated_barrel_part then 
 		return
 	end
 	
@@ -44,11 +46,11 @@ function CrossbowWeaponBase:update_crossbow_string(speed)
 
 	part_unit:anim_stop(ids_anim_name)
 	if self:clip_empty() then
-		part_unit:anim_play_to(ids_anim_name, string_time, speed)
+		part_unit:anim_play_to(ids_anim_name, self._string_time, speed)
 	end
 end
 
 --Remove immediate reload mechanic from Crossbows.
 function CrossbowWeaponBase:should_reload_immediately()
-	return not CrossbowAnimationEnhancement.Options:GetValue("DisableInstantReload")
+	return not self._string_time or not CrossbowAnimationEnhancement.Options:GetValue("DisableInstantReload")
 end
