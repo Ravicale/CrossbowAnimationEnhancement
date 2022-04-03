@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<mod name="CrossbowAnimationEnhancement" global_key="CrossbowAnimationEnhancement">
+	<Localization directory="loc" default="english.json">
+	</Localization>
+
+	<Options name="Options" save_file="CrossbowAnimationEnhancement.txt">
+		<options>
+			<option type="bool" default_value="false" name="DisableInstantReload" desc_id="DisableInstantReloadID"/>
+		</options>
+	</Options>
+</mod>

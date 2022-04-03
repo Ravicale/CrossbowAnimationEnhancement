@@ -1,0 +1,6 @@
+{
+	"CrossbowAnimationEnhancementOptionsButtonTitleID" : "Crossbow Animation Enhancement",
+	"CrossbowAnimationEnhancementOptionsButtonDescID" : "Crossbow Animation Enhancement Options",
+	"CrossbowAnimationEnhancementDisableInstantReloadTitleID" : "Disable Instant Reload",
+	"DisableInstantReloadID" : "Makes crossbows only reload when you tell them to, rather than instantly after you shoot."
+}
